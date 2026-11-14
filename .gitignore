@@ -1,0 +1,21 @@
+# Dépendances Composer
+/vendor/
+
+# Bases de données locales
+*.sqlite
+*.sqlite3
+
+# Fichiers de configuration sensibles
+/config/config.php
+.env
+
+# Fichiers macOS
+.DS_Store
+
+# Fichiers temporaires et logs
+*.log
+*.tmp
+
+# Éditeurs
+.vscode/
+.idea/
