@@ -32,7 +32,7 @@ Prérequis : PHP 8 installé (`php -v` pour vérifier).
 
     git clone https://github.com/yas-el05/urbanPulse-php.git
     cd urbanPulse-php
-    php -S localhost:8000
+    php -S localhost:8000 -t public
 
 Puis ouvrir http://localhost:8000 dans le navigateur.
 

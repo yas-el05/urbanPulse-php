@@ -21,3 +21,9 @@
 À compléter
 
 ### Prochaines étapes
+## 14/11/2026
+
+- Création du projet : README, .gitignore, journal
+- Première page PHP (`public/index.php`) avec des variables et `date()`
+- Mise en ligne sur GitHub (problème d'authentification résolu avec un token)
+- Compris : le code PHP s'exécute sur le serveur, le navigateur ne reçoit que du HTML
