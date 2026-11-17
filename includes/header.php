@@ -12,5 +12,6 @@
         <a href = "/">Accueil</a>
         <a href = "/lieux.php">Lieux</a>
     </nav>
+    <link rel="stylesheet" href="/css/style.css">
 </header>
 <main>
