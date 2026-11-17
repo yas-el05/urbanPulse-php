@@ -1,16 +1,10 @@
 <?php
-$ville = "Cergy";
-$date = date("d/m/Y");
+$titre = 'Accueil';
+$ville = 'Cergy';
+require __DIR__ . '/../includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>UrbanPulse – <?= $ville ?></title>
-</head>
-<body>
-    <h1>UrbanPulse</h1>
-    <p>Bienvenue sur le portail de la ville de <?= $ville ?>.</p>
-    <p>Nous sommes le <?= $date ?>.</p>
-</body>
-</html>
+<h1> Bienvenue à <?= $ville ?></h1>
+<p>UrbanPulse est le portail d'informations de la ville de <?= $ville ?>.</p>
+<p>Nous sommes le <?= date('d/m/Y') ?>.</p>
+
+<?php require __DIR__ . '/../includes/footer.php'; ?>
