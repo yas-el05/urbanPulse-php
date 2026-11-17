@@ -34,9 +34,9 @@ Quatre niveaux d'accès :
 ## Fonctionnalités prévues
 
 - [x] Page d'accueil
-- [ ] Structure commune des pages (header / footer)
-- [ ] Liste des lieux de la ville (parcs, équipements, services)
-- [ ] Recherche de lieux
+- [x] Structure commune des pages (header / footer)
+- [x] Liste des lieux de la ville (parcs, équipements, services)
+- [x] Recherche de lieux
 - [ ] Stockage des données en base MySQL (PDO)
 - [ ] Inscription, connexion sécurisée et niveaux d'accès
 - [ ] Espace habitant (profil, points, membres)
