@@ -9,13 +9,19 @@ $type     = $_GET['type'] ?? '';
 //Préparer les listes déroulantes à partir des données
 $quartiers = array_unique(array_column($lieux, 'quartier'));
 $types     = array_unique(array_column($lieux, 'type'));
-sort($quartiers);
+sort($quartiers); //trie par ordre alphabétique
 sort($types);
 
 //Garder seulement les lieux qui correspondent
 $resultats = [];
 foreach ($lieux as $id => $lieu) {
     if ($motCle !== '' && mb_stripos($lieu['nom'] . ' ' . $lieu['description'], $motCle) === false) {
+        /*
+        si un mot-clé est rempli (!== '') et qu’on ne le trouve ni dans le nom ni dans la description, 
+        on écarte le lieu. 
+        mb_stripos cherche un texte dans un autre sans tenir compte des majuscules. 
+        Elle renvoie false si elle ne trouve rien. Le mb_ permet de bien gérer les accents.
+        */
         continue;
     }
     if ($quartier !== '' && $lieu['quartier'] !== $quartier) {
@@ -37,12 +43,13 @@ require __DIR__ . '/../includes/header.php';
     <label>
         Mot-clé
         <input type="search" name="q" value="<?= htmlspecialchars($motCle) ?>" placeholder="gare, parc…">
+        <!-- q stocke ce que l'utilisateur tape (on le voit dans l'adresse aussi) -->
     </label>
 
     <label>
-        Quartier
-        <select name="quartier">
-            <option value="">Tous les quartiers</option>
+        Quartier <!-- c'est ce qui s'affiche à côté d'un input search  -->
+        <select name="quartier"> <!-- crée une liste déroulante -->
+            <option value="">Tous les quartiers</option> <!-- les <option> sont les options du menu déroulant, elles sont soit selected ou pas -->
             <?php foreach ($quartiers as $q): ?>
                 <option value="<?= htmlspecialchars($q) ?>" <?= $q === $quartier ? 'selected' : '' ?>>
                     <?= htmlspecialchars($q) ?>
