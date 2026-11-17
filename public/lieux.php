@@ -10,7 +10,7 @@ require __DIR__ . '/../includes/header.php';
 <ul>
     <?php foreach ($lieux as $id => $lieu): ?>
         <li>
-            <strong><?= htmlspecialchars($lieu['nom']) ?></strong>
+            <a href="/lieu.php?id=<?= $id ?>"><strong><?= htmlspecialchars($lieu['nom']) ?></strong></a>
             — <?= htmlspecialchars($lieu['type']) ?>
             — <?= htmlspecialchars($lieu['quartier']) ?>
         </li>
