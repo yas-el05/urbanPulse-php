@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=  $titre ?></title>
+    <link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>
 <header>
@@ -12,6 +14,5 @@
         <a href = "/">Accueil</a>
         <a href = "/lieux.php">Lieux</a>
     </nav>
-    <link rel="stylesheet" href="/css/style.css">
 </header>
 <main>

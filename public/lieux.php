@@ -1,5 +1,6 @@
 <?php
-$lieux = require __DIR__ . '/../data/lieux.php';
+require __DIR__ . '/../includes/db.php';
+$lieux = $pdo->query('SELECT id, nom, type, quartier, description FROM lieux ORDER BY nom')->fetchAll(PDO::FETCH_UNIQUE);
 
 //Lire ce que l'utilisateur a demandé (vide si rien)
 $motCle   = trim($_GET['q'] ?? '');
@@ -47,7 +48,7 @@ require __DIR__ . '/../includes/header.php';
     </label>
 
     <label>
-        Quartier <!-- c'est ce qui s'affiche à côté d'un input search  -->
+        Quartier <!-- c'est ce qui s'affsiche à côté d'un input search  -->
         <select name="quartier"> <!-- crée une liste déroulante -->
             <option value="">Tous les quartiers</option> <!-- les <option> sont les options du menu déroulant, elles sont soit selected ou pas -->
             <?php foreach ($quartiers as $q): ?>

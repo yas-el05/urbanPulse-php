@@ -1,5 +1,6 @@
 <?php
-$lieux = require __DIR__ . '/../data/lieux.php';
+require __DIR__ . '/../includes/db.php';
+$lieux = $pdo->query('SELECT id, nom, type, quartier, description FROM lieux ORDER BY nom')->fetchAll(PDO::FETCH_UNIQUE);
 
 // On lit le numéro dans l'adresse (lieu.php?id=...)
 $id = (int) ($_GET['id'] ?? 0);
