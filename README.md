@@ -16,7 +16,7 @@ Dans le projet de groupe, j'avais surtout réalisé la page d'accueil, la recher
   
 ## Statut
 
-En cours de développement (commencé en novembre 2026).
+Phases 1 et 2 terminées ! La prochaine étape est donc l'inscription/ connexion.
 
 ## Ce que le site proposera
  
@@ -37,7 +37,7 @@ Quatre niveaux d'accès :
 - [x] Structure commune des pages (header / footer)
 - [x] Liste des lieux de la ville (parcs, équipements, services)
 - [x] Recherche de lieux
-- [ ] Stockage des données en base MySQL (PDO)
+- [x] Stockage des données en base MySQL (PDO)
 - [ ] Inscription, connexion sécurisée et niveaux d'accès
 - [ ] Espace habitant (profil, points, membres)
 - [ ] Espace gestionnaire (objets connectés)
@@ -64,8 +64,6 @@ Les dates sont des repères : si je prends du retard sur une semaine, je décale
 - PHP 8
 - HTML / CSS
 - MySQL
-- Prévus plus tard : Composer, PHPUnit (tests), un peu de JavaScript pour la page qui utilise l'API (assistée par IA)
-
 
 ## Lancer le projet en local
 
@@ -79,4 +77,4 @@ Puis ouvrir http://localhost:8000 dans le navigateur.
 
 ## Suivi
 
-Le fichier `journal.md` retrace l'avancement du projet et ce que j'apprends à chaque étape.
+Le fichier `JOURNAL.md` retrace l'avancement du projet et ce que j'apprends à chaque étape.
