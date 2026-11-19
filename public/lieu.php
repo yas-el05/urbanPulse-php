@@ -1,17 +1,18 @@
 <?php
 require __DIR__ . '/../includes/db.php';
-$lieux = $pdo->query('SELECT id, nom, type, quartier, description FROM lieux ORDER BY nom')->fetchAll(PDO::FETCH_UNIQUE);
 
-// On lit le numéro dans l'adresse (lieu.php?id=...)
 $id = (int) ($_GET['id'] ?? 0);
 /*
 lit le paramètre id. Si l’adresse n’en contient pas 
 (quelqu’un tape juste lieu.php), on prend 0 à la place. 
 Le ?? veut dire « sinon ».
 */
+$requete = $pdo->prepare('SELECT id, nom, type, quartier, description FROM lieux WHERE id = :id');
+$requete->execute(['id' => $id]);
+$lieu = $requete->fetch();
 
 // Si ce lieu n'existe pas, on affiche une page d'erreur
-if (!isset($lieux[$id])) {
+if ($lieu === false) {
     http_response_code(404);
     $titre = 'Lieu introuvable';
     require __DIR__ . '/../includes/header.php';
@@ -21,7 +22,6 @@ if (!isset($lieux[$id])) {
     exit;
 }
 
-$lieu = $lieux[$id]; //récupère le tableau avec les elements d'un lieu 
 $titre = $lieu['nom']; // récupère le nom du lieu séléctionné (on l'utilise pour le fichier header)
 require __DIR__ . '/../includes/header.php';
 ?>

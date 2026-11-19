@@ -13,26 +13,30 @@ $types     = array_unique(array_column($lieux, 'type'));
 sort($quartiers); //trie par ordre alphabétique
 sort($types);
 
-//Garder seulement les lieux qui correspondent
-$resultats = [];
-foreach ($lieux as $id => $lieu) {
-    if ($motCle !== '' && mb_stripos($lieu['nom'] . ' ' . $lieu['description'], $motCle) === false) {
-        /*
-        si un mot-clé est rempli (!== '') et qu’on ne le trouve ni dans le nom ni dans la description, 
-        on écarte le lieu. 
-        mb_stripos cherche un texte dans un autre sans tenir compte des majuscules. 
-        Elle renvoie false si elle ne trouve rien. Le mb_ permet de bien gérer les accents.
-        */
-        continue;
-    }
-    if ($quartier !== '' && $lieu['quartier'] !== $quartier) {
-        continue;
-    }
-    if ($type !== '' && $lieu['type'] !== $type) {
-        continue;
-    }
-    $resultats[$id] = $lieu;
+$sql = 'SELECT id, nom, type, quartier, description FROM lieux WHERE 1=1';
+$params = [];
+
+if($motCle !== ''){
+    $sql .= ' AND (nom LIKE :motCle1 OR description LIKE :motCle2)';
+    $params['motCle1'] = '%' . $motCle . '%';
+    $params['motCle2'] = '%' . $motCle . '%';
 }
+
+if($quartier !== ''){
+    $sql .= ' AND quartier = :quartier';
+    $params['quartier'] = $quartier;
+}
+if($type !== ''){
+    $sql .= ' AND type = :type';
+    $params['type'] = $type;
+}
+
+$sql .= ' ORDER BY nom';
+
+$requete = $pdo->prepare($sql);
+$requete->execute($params);
+$resultats = $requete->fetchAll(PDO::FETCH_UNIQUE);
+
 
 $titre = 'Lieux';
 require __DIR__ . '/../includes/header.php';
