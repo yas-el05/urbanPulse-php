@@ -14,6 +14,8 @@
         <a href = "/">Accueil</a>
         <a href = "/lieux.php">Lieux</a>
         <a href ="/contact.php">Contact</a>
+        <a href ="/inscription.php">S'inscrire</a>
+
 
     </nav>
 </header>
